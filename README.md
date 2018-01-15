@@ -8,10 +8,8 @@ an nwjs application that let you send serialdata to arduino.
 * controllers templates, car rc controller.
 
 # how to use it?
-you need to install nwjs and run `npm install serialport` in the app dir (next to `package.json`) the put the folders in the nwjs folder
-and run the  `nw` file.
-<hr>
-or you can simply download the installer.exe for windows!
+you need to install nwjs and put all the folders in the nwjs downloaded folder then run the  `nw` file.
+__or you can simply download the installer.exe for windows!__
 
 # how to edit the logic and the ui.
 
