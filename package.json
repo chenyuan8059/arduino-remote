@@ -1,0 +1,14 @@
+{
+	"name": "arduino-remote",
+	"main": "./templates/index.html",
+	"window": {
+		"frame": false,
+		"toolbar": false,
+		"width": 1000,
+		"height": 600
+	},
+	"dependencies": {
+		"nw-gyp": "^3.6.3",
+		"serialport": "^6.0.4"
+	}
+}

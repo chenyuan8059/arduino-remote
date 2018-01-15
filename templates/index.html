@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Test</title>
+  <!-- Font Awesome -->
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="../css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/app-style.css" rel="stylesheet">
+</head>
+
+<body class="stylish-color-dark">
+    <nav style="-webkit-app-region: drag" class="navbar stylish-color fixed-top scrolling-navbar">
+      <span style="-webkit-app-region: no-drag">
+  <i class="fa fa-circle custom-controls close-icon" data-toggle="tooltip" data-placement="bottom" title="Close" id="windowControlClose" style="font-size: 15px;"></i>
+  <i class="fa fa-circle custom-controls min-icon" data-toggle="tooltip" data-placement="bottom" title="min" id="windowControlMinimize" style="font-size: 15px"></i>
+  <i class="fa fa-circle custom-controls max-icon" data-toggle="tooltip" data-placement="bottom" title="max" id="windowControlMaximize" style="font-size: 15px"></i>
+  </span>
+      <h2 class="text-center" style="font-family: logo">Arduino remote <i class="fa fa-gamepad" aria-hidden="true"></i>
+</h2>
+      <span style="-webkit-app-region: no-drag" class="float-right">
+  <i class="fa fa-cog custom-controls min-icon" data-toggle="tooltip"
+       data-placement="bottom" title="Settings" onclick="goSettings()" style="font-size: 15px;"></i>
+  <i class="fa fa-refresh custom-controls min-icon" data-toggle="tooltip"
+  data-placement="bottom" title="Reload" onclick="reload()" style="font-size: 15px;"></i>
+  <i class="fa fa-arrow-left custom-controls min-icon" data-toggle="tooltip"
+  data-placement="bottom" title="Go back"onclick="goP()" style="font-size: 15px;"></i>
+  </span>
+    </nav><br><br><br>
+
+  <br>
+  <div class="container-fluid" style="width:90%">
+
+    <!-- main -->
+
+    <!-- intro -->
+    <div class="text-center app-intro">
+      <div class="row animated slideInRight">
+        <div class="col-md-4 ">
+                <div class="jumbotron stylish-color-dark"><p class="lead"><i class="fa fa-plug" aria-hidden="true"></i> Plug your arduino</p></div>
+        </div>
+        <div class="col-md-4 ">
+                <div class="jumbotron stylish-color-dark"><p class="lead"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i> Click connect <i class="fa fa-arrow-down" aria-hidden="true"></i>
+</p></div>
+        </div>
+        <div class="col-md-4">
+                <div class="jumbotron stylish-color-dark"><p class="lead"><i class="fa fa-magic"></i> Enjoy!</p></div>
+        </div>
+      </div>
+       <button class="btn p ph" onclick="getConnectedArduino()">Connect now!</button>
+       <h5 class="white-text">We will read all serailports and search arduino, make sure its connected</h5>
+       <div class="stylish-color-dark jumbotron searchProcess">
+         <ul id="searchProcess">
+
+         </ul>
+       </div>
+       <div class="jumbotron stylish-color-dark">
+         <h5><i class="fa fa-code white-text"></i> with <i class="fa fa-heart red-text"></i> by mohammed G. Alqudah</h5>
+       </div>
+    </div>
+
+    <!-- ./intro -->
+
+    <!-- onready -->
+    <div class="onready">
+    <div class="row">
+      <div class="col-md-12 jumbotron stylish-color-dark">
+        <p><i class="green-text fa fa-check"></i> Connected at port <kbd id="info-port"></kbd></p>
+      </div>
+    </div>
+    <br>
+    <div class="md-form input-group">
+        <input type="text" class="form-control" id="serialD"placeholder="Send serial data to arduino....">
+        <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg" type="button" onclick="send(document.getElementById('serialD').value)">Send</button>
+        </span>
+    </div>
+    <button class="btn p ph" id="listenbtn">listen to arduino</button>
+    <button class="btn btn-info" onclick="clearlog()">Clear</button>
+    <div class="jumbotron serialog col-md-12 stylish-color white-text" style="font-size:10px"id="serialog">
+        <p id="serialogplaceholder">this is the app serial monitor! click listen to see!</p>
+    </div>
+    <hr>
+    <br>
+    <h3 class="h3">Controls</h3>
+    <div class="btn-cs text-center row">
+      <div class="col-md-6">
+        <div class="">
+          <h4>LEDS</h4>
+          <button class="btn btn-default">light on <i class=" yellow-text fa fa-lightbulb-o fa-2x " aria-hidden="true"></i></button>
+          <button class="btn btn-default">light off <i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i></button>
+          <button class="btn btn-default">blink <i class="blink fa fa-lightbulb-o fa-2x " aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="">
+          <h4>MOTORS</h4>
+          <button class="btn btn-default">motor on <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></button>
+          <button class="btn btn-default">motor off <i class="fa fa-spinner" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+  </div>
+  <h3 class="h3">Controllers</h3>
+  <div class="row text-center">
+    <div class="col-md-6">
+      <button class="btn btn-info" data-toggle="modal" data-target="#rc">car controller</button>
+    </div>
+  </div>
+
+  <div class="jumbotron stylish-color-dark">
+    <h5><i class="fa fa-code white-text"></i> with <i class="fa fa-heart red-text"></i> by mohammed G. Alqudah</h5>
+  </div>
+  </div>
+
+    <!-- ./onready -->
+    <!-- modals -->
+
+
+<!-- Modal -->
+<div class="modal fade stylish-color-dark" id="rc" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog stylish-color-dark" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Controller</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default" onclick="send('1')"><i class="fa fa-arrow-up"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button class="btn btn-default" onclick="send('2')"><i class="fa fa-arrow-left"></i></button>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-default" onclick="send('3')"><i class="fa fa-arrow-right"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-default" onclick="send('4')"><i class="fa fa-arrow-down"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn p ph" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--./main-->
+
+  </div>
+
+
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../js/mdb.min.js"></script>
+  <script type="text/javascript" src="../logic/custom-controls.js"></script>
+  <script type="text/javascript" src="../logic/nav.js"></script>
+  <script type="text/javascript" src="../logic/startup.js"></script>
+</body>
+
+</html>

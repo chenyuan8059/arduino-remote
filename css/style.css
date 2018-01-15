@@ -1,0 +1,114 @@
+/* Your custom styles */
+
+.p {
+  background-color: #3F729B;
+}
+
+.ph:hover {
+  background-color: #1C2331;
+}
+
+.lightBG {
+  background-color: white;
+}
+
+.custom-controls {
+  color: gray;
+}
+
+.close-icon:hover {
+  color: #CC0000;
+}
+
+.min-icon:hover {
+  color: #0099CC
+}
+
+.max-icon:hover {
+  color: #FF8800
+}
+
+
+
+@font-face {
+  font-family: 'logo';
+  src: url('../font/CRUSHED c PERSONAL USE ONLY.ttf');
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'murderer';
+  src: url('../font/youmurdererbb_reg.otf');
+  /* IE9 Compat Modes */
+}
+
+#arduino-name {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.start:hover {
+  color: green
+}
+
+.form-control {
+  color: #fff;
+}
+
+.form-control:focus {
+  color: #fff;
+}
+
+.onready {
+  display: none;
+}
+.serialog{
+  height: 400px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #eee;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
+
+.blink {
+    -webkit-animation: animate_bg 5s;
+    animation: animate_bg 5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes animate_bg {
+    0%   {color:yellow;}
+    50%  {color:white;}
+}
+
+@-webkit-keyframes animate_bg {
+    0%   {color:yellow;}
+    50%  {color:white;}
+}
+.searchProcess{
+  height: 200px;
+  overflow-y: scroll;
+}
